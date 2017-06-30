@@ -1,0 +1,3 @@
+slugTracker.controller('issueCreatorController',function(){
+    
+});

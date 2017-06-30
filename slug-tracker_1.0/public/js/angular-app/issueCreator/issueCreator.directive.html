@@ -1,0 +1,184 @@
+<div class="ui modal issue-creator">
+    <div class="header">Create Issue</div>
+    <a href="#">.</a>
+    <div class="content">
+        <div class="ui fluid grid">
+            <div class="column">
+                <div class="ui form tiny">
+                    <div class="three fields">
+                        <div class="field">
+                            <label>Project:</label>
+                            <div class="ui fluid search selection dropdown issue-type">
+                                <input type="hidden" name="issue-type">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Project</div>
+                                <div class="menu">
+                                    <div class="item" data-value="us" ng-repeat="project in issueCreator.projectList"> 
+                                        {{project.name}}
+                                    </div>
+                                    <!-- additional countries -->
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="field">
+                            <label>Issue type:</label>
+                            <div class="ui fluid search selection dropdown issue-type">
+                                <input type="hidden" name="issue-type">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Bug Type</div>
+                                <div class="menu">
+                                    <div class="item" data-value="us"><img src="./svg/bug.svg"/>Bug</div>
+                                    <div class="item" data-value="us"><img src="./svg/epic.svg"/>Epic</div>
+                                    <div class="item" data-value="us"><img src="./svg/task.svg"/>Task</div>
+                                    <div class="item" data-value="us"><img src="./svg/story.svg"/>Story</div>
+                                    <!-- additional countries -->
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="field">
+                            <label>Fix Versions</label>
+                            <div class="ui fluid search selection dropdown issue-type">
+                                <input type="hidden" name="issue-type">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Version</div>
+                                <div class="menu">
+                                    <div class="item" ng-repeat='version in issueCreator.versionList' data-value="us">
+                                        {{version.value}}
+                                    </div>
+                                    <!-- additional countries -->
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="field ten wide ">
+                        <label>Summary</label>
+                        <div class="ui input required">
+                            <input  type="text" placeholder="">
+                        </div>
+                    </div>
+                    <div class="two fields">
+                        <div class="ten wide field">
+                            <label>Reporter</label>
+                            <div class="ui fluid search selection dropdown issue-type">
+                                <input type="hidden" name="issue-type">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Reporter</div>
+                                <div class="menu">
+                                    <div class="item" data-value="us"><i class="bug icon"></i>Bug</div>
+                                    <div class="item" data-value="us"><i class="bug icon"></i>Bug</div>
+                                    <div class="item" data-value="us"><i class="bug icon"></i>Bug</div>
+                                    <!-- additional countries -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="six wide field">
+                            <label>Priority</label>
+                            <div class="ui fluid search selection dropdown issue-type">
+                                <input type="hidden" name="issue-type">
+                                <i class="dropdown icon"></i>
+                                <div class="default text"></div>
+                                <div class="menu">
+                                    <div class="item" data-value="us"><i class="bug icon"></i>Bug</div>
+                                    <div class="item" data-value="us"><i class="bug icon"></i>Bug</div>
+                                    <div class="item" data-value="us"><i class="bug icon"></i>Bug</div>
+                                    <!-- additional countries -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="four fields">
+                        <div class="field">
+                            <label>Assignee</label>
+                            <div class="ui fluid search selection dropdown issue-type">
+                                <input type="hidden" name="issue-type">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Automatic</div>
+                                <div class="menu">
+                                    <div class="item" data-value="us"><i class="bug icon"></i>Bug</div>
+                                    <div class="item" data-value="us"><i class="bug icon"></i>Bug</div>
+                                    <div class="item" data-value="us"><i class="bug icon"></i>Bug</div>
+                                    <!-- additional countries -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>Epic Link</label>
+                            <div class="ui fluid search selection dropdown issue-type">
+                                <input type="hidden" name="issue-type">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Automatic</div>
+                                <div class="menu">
+                                    <div class="item" data-value="us"><i class="bug icon"></i>Bug</div>
+                                    <div class="item" data-value="us"><i class="bug icon"></i>Bug</div>
+                                    <div class="item" data-value="us"><i class="bug icon"></i>Bug</div>
+                                    <!-- additional countries -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>Sprint</label>
+                            <div class="ui fluid search selection dropdown issue-type">
+                                <input type="hidden" name="issue-type">
+                                <i class="dropdown icon"></i>
+                                <div class="default text"></div>
+                                <div class="menu">
+                                    <div class="item" data-value="us"><i class="bug icon"></i>Bug</div>
+                                    <div class="item" data-value="us"><i class="bug icon"></i>Bug</div>
+                                    <div class="item" data-value="us"><i class="bug icon"></i>Bug</div>
+                                    <!-- additional countries -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Description</label>
+                        <textarea name="issue-description" class="issue-description" rows="10" cols="80">
+                        </textarea>
+                    </div>
+                    
+                        
+                    <div class="four fields">
+                        <div class="field">
+                            <label>Linked Issue</label>
+                            <div class="ui fluid search selection dropdown issue-type">
+                                <input type="hidden" name="issue-type">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Blocks</div>
+                                <div class="menu">
+                                    <div class="item" data-value="us"><i class="bug icon"></i>Bug</div>
+                                    <div class="item" data-value="us"><i class="bug icon"></i>Bug</div>
+                                    <div class="item" data-value="us"><i class="bug icon"></i>Bug</div>
+                                    <!-- additional countries -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ten wide field">
+                            <label>Issue</label>
+                            <select name="skills" multiple="" class="ui fluid dropdown">
+                                <option value="">Skills</option>
+                                <option value="angular">Angular</option>
+                                <option value="css">CSS</option>
+                                <option value="design">Graphic Design</option>
+                                <option value="ember">Ember</option>
+                                <option value="html">HTML</option>
+                            </select>
+                        </div>
+                    </div>
+
+                   
+                </div>
+            </div>    
+            <!--            <div class="ui vertical divider" style="margin-left: 52%">
+                            <label>  Preview<i class="right arrow icon"></i></label>
+                        </div>
+                        <div class="eight wide column">
+            
+                        </div>-->
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui approve button blue">Preview</div>
+        <div class="ui approve button green">Create</div>
+        <div class="ui cancel button red">Cancel</div>
+    </div>
+</div>
