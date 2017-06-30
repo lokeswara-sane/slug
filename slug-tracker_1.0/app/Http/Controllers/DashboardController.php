@@ -3,24 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-//use Illuminate\Support\Facades\Auth;
-use App\Http\Requests;
+use app\http\Services\SlugLibrary;
 
 class DashboardController extends Controller
 {
-     function __construct() {
-          
+     public function __construct() {
+          $User = SlugLibrary::getUser();          
      }
      
-     public function index(){
+     public function index(Request $request){
           
-          $this->data['name'] = "Name";
-//          print_r(\Auth::guard());
-          if(\Auth::guard()){
-               return view('dashboard.index',$this->data);
-          }
-          else{
-               \Redirect::to('/')->send();
-          }
+          $this->data['user'] = $User;
+          return view('dashboard.index')->with($this->data);
      }
 }

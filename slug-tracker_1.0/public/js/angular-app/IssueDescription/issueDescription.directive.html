@@ -1,0 +1,126 @@
+<div class="ui grid">
+    <div class="fourteen wide column">
+        <div class="ui card fluid">
+            <div class="content">
+                <div class="ui header">
+                    <div class="ui breadcrumb">
+                        <a class="section">{{issueDescription.issueObj.projectName}}</a>
+                        <div class="divider"> / </div>
+                        <div class="active section">{{issueDescription.issueObj.name}}</div>
+                    </div>
+                    <div class="divider ui">
+
+                    </div>
+                    <div class="header" style="padding-bottom: 1em">
+                        {{issueDescription.issueObj.name}} <span>: </span>{{issueDescription.issueObj.heading}}
+                    </div>
+                    <div class="ui grid equal width">
+                        <div class="column three wide">
+                            <div class="button ui grey fluid"><i class="edit icon"></i> Edit </div>
+                        </div>
+                        <div class="column three wide">
+                            <div class="button ui grey fluid"><i class="comment icon"></i>Comment</div>
+                        </div>
+                        <div class="column three wide">
+                            <div class="button ui grey fluid"><i class="user icon"></i>Assign </div>
+                        </div>
+                        <div class="column">
+                            <div class="button ui {{issueDescription.issueObj.status.color}} fluid"> {{issueDescription.issueObj.status.text}} </div>
+                        </div>
+                        <div class="column"> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui content">
+                <h2 class="ui left floated sub header orange">Description</h2>
+                <div class="ui clearing divider"></div>
+                <p></p>
+
+                <!--Bug sub description-->
+                <div class="ui grid equal width">
+                    <div class="row">
+                        <div class="column three wide">
+                            <div class="ui list">
+                                <div class="item">Type</div>
+                                <div class="item">Priority</div>
+                                <div class="item">Status</div>
+                                <div class="item">Fix versions</div>
+                                <div class="item">Sprint</div>
+                                <div class="item">Platform</div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="ui list">
+                                <div class="item"><img src="{{issueDescription.issueObj.type.iconUrl}}"/> {{issueDescription.issueObj.type.type}}</div>
+                                <div class="item">{{issueDescription.issueObj.priority}}</div>
+                                <div class="item">{{issueDescription.issueObj.status.text}}</div>
+                                <div class="item">{{issueDescription.issueObj.fixVersion}}</div>
+                                <div class="item">Sprint-{{issueDescription.issueObj.sprint}}</div>
+                                <div class="item">{{issueDescription.issueObj.platform}}</div>
+                            </div>
+                        </div>
+                        <div class="column three wide">
+                            <div class="ui list">
+                                <div class="item">Assignee</div>
+                                <div class="item">Reporter</div>
+                                <div class="item">Watchers</div>
+                                <div class="item" style='margin-top:13px'>Progress</div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="ui list">
+                                <div class="item">{{issueDescription.issueObj.assignee.name}}</div>
+                                <div class="item">{{issueDescription.issueObj.reporter}}</div>
+                                <div class="item"><a class="ui button green circular label">{{(issueDescription.issueObj.watchers).length}}</a></div> <!--data-tooltip="<span></span>" data-position="right center"-->
+                                <div class="item">
+                                    <div class="ui indicating  progress" id="issueProgress">
+                                        <div class="bar"><div class="progress"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="ui segment">
+                            <h2 class="ui left floated sub header orange">Acceptance criteria</h2>
+                            <div class="ui clearing divider"></div>
+                            <p>{{issueDescription.issueObj.acceptenceCriteria}}
+                            </p>
+                            <div class="content">
+                                <div class="ui header floated sub orange">Issue Links</div>
+                                <div class="ui clearing divider"></div>
+                                <div class="ui list">
+                                    <div class="item">SLUG-001</div>
+                                    <div class="item">SLUG-002</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui content">
+                            <h2 class="ui left floated sub header">Activity</h2>
+                            <div class="ui clearing divider"></div>
+                            <div class="ui top attached tabular menu activity-issue">
+                                <a class="item active" data-tab="first">All</a>
+                                <a class="item" data-tab="second">Comments</a>
+                                <a class="item" data-tab="third">History</a>
+                            </div>
+                            <div class="ui bottom attached tab segment active" data-tab="first">
+                                All
+                            </div>
+                            <div class="ui bottom attached tab segment" data-tab="second">
+                                Comments
+                            </div>
+                            <div class="ui bottom attached tab segment" data-tab="third">
+                                History
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Bug sub description-->
+            </div>
+
+
+        </div>
+    </div>
+    <!--End Bug description-->
+</div>

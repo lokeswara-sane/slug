@@ -1,49 +1,48 @@
+const elixir = require('laravel-elixir');
 
-// Load Gulp
-var gulp   = require('gulp');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var sass = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
-var cssmin = require('gulp-cssmin');
-//var postcss    = require('gulp-postcss');
-
-var plumber = require('gulp-plumber');
+require('laravel-elixir-vue');
+require('elixir-typescript');
 
 
-// Start Watching: Run "gulp"
-gulp.task('default', ['watch']);
+/*
+ |--------------------------------------------------------------------------
+ | Elixir Asset Management
+ |--------------------------------------------------------------------------
+ |
+ | Elixir provides a clean, fluent API for defining some basic Gulp tasks
+ | for your Laravel application. By default, we are compiling the Sass
+ | file for our application, as well as publishing vendor resources.
+ |
+ */
 
+elixir(mix => {
+    mix.sass('app.scss')
+    .webpack('app.js')
+    .copy('node_modules/@angular', 'public/@angular')
+    .copy('node_modules/anular2-in-memory-web-api', 'public/anular2-in-memory-web-api')
+    .copy('node_modules/core-js', 'public/core-js')
+    .copy('node_modules/reflect-metadata', 'public/reflect-metadata')
+    .copy('node_modules/systemjs', 'public/systemjs')
+    .copy('node_modules/rxjs', 'public/rxjs')
+    .copy('node_modules/zone.js', 'public/zone.js')
 
-
-// SCSS to CSS: Run manually with: "gulp build-css"
-gulp.task('build-css', function() {
-    return gulp.src('public/css/*.scss')
-        .pipe(plumber())
-        .pipe(sass())
-        .on('error', sass.logError)
-        .pipe(autoprefixer({
-            browsers: [
-
-                '> 1%',
-                'last 2 versions',
-                'firefox >= 4',
-                'safari 7',
-                'safari 8',
-                'IE 8',
-                'IE 9',
-                'IE 10',
-                'IE 11'
-            ],
-            cascade: false
-        }))
-        .pipe(gulp.dest('public/dist/css')).on('error', sass.logError)
-   
-});
-
-// Default task
-gulp.task('watch', function() {
-    //livereload.listen();
-     gulp.watch('public/css/**/*.scss', ['build-css']);
-});
-
+    .typescript(
+        [
+            'app.component.ts',
+            'app.module.ts',
+            'main.ts'
+        ],
+        'public/app',
+        {
+            "target": "es5",
+            "module": "system",
+            "moduleResolution": "node",
+            "sourceMap": true,
+            "emitDecoratorMetadata": true,
+            "experimentalDecorators": true,
+            "removeComments": false,
+            "noImplicitAny": false
+        }
+    );
+})
+;

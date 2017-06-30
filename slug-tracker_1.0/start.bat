@@ -1,0 +1,1 @@
+start http://127.0.0.1:1010/dashboard | php artisan serve --port 1010
